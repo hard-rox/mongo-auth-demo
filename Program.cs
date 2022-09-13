@@ -5,8 +5,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MongoAuth;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((ctx, lc) =>
+{
+    lc.WriteTo.Console();
+});
 
 // Add services to the container.
 
